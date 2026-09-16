@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>回收站</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+    <h2>🗑️ 回收站（已移入的直播场次）</h2>
+    <a href="{{url_for('index')}}" class="btn btn-secondary mb-3">返回首页</a>
+    {% if del_list|length ==0 %}
+        <div class="alert alert-light">回收站空空如也</div>
+    {% else %}
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>直播时间</th>
+            <th>直播间</th>
+            <th>品类</th>
+            <th>主播</th>
+            <th>备注</th>
+            <th>操作</th>
+        </tr>
+        {% for item in del_list %}
+        <tr>
+            <td>{{item[0]}}</td>
+            <td>{{item[1]}}</td>
+            <td>{{item[2]}}</td>
+            <td>{{item[3]}}</td>
+            <td>{{item[4]}}</td>
+            <td>{{item[5]}}</td>
+            <td>
+                <a href="{{url_for('restore_live', live_id=item[0])}}" class="btn btn-sm btn-success">✅恢复</a>
+                <a href="{{url_for('hard_delete_live', live_id=item[0])}}" class="btn btn-sm btn-danger" onclick="return confirm('⚠️确认永久删除，删除后数据无法找回！')">永久删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>

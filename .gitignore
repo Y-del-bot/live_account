@@ -216,3 +216,27 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 数据库
+*.db
+*.sqlite
+*.sqlite3
+
+# Python虚拟环境
+.venv/
+venv/
+env/
+
+# PyCharm配置
+.idea/
+*.iml
+
+# Python缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 日志
+*.log
+

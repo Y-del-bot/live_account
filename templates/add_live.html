@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>新增直播场次</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+    <h3>新增直播场次信息</h3>
+    <form method="post">
+        <div class="mb-2">直播时间：<input class="form-control" name="live_time" required></div>
+        <div class="mb-2">直播间名称：<input class="form-control" name="live_room_name" required></div>
+        <div class="mb-2">农产品品类：<input class="form-control" name="product_category" required></div>
+        <div class="mb-2">主播信息：<input class="form-control" name="anchor_name"></div>
+        <div class="mb-2">备注：<textarea class="form-control" name="remark"></textarea></div>
+        <button type="submit" class="btn btn-primary">提交保存</button>
+        <a href="{{url_for('index')}}" class="btn btn-secondary">返回</a>
+    </form>
+</body>
+</html>
